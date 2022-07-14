@@ -1,0 +1,19 @@
+Useful notes for Psychtoolbox coding
+
+Get your screen dimensions (e.g. for rect input): 
+
+>> Screen('Rect', 0)
+
+If MATLAB crashes, press Atl-tab to navigate to the editor window (this should close the Psychtoolbox screen)
+
+Minimize this window and you should be able to click into the command window
+
+Type Screen(‘CloseAll’) to close the psychtoolbox screen
+
+Clear comand window:
+
+>> clc 
+
+To get key codes:
+
+>> KbName('KeyNames')
