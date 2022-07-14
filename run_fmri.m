@@ -117,23 +117,8 @@ for iTrial = 1:n_trials
     % decision
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
-     my_drawdecision(myscreen)
+     my_drawdecision(myscreen, rect, [255 255 255])
      Screen('Flip', myscreen); % show decision
-     
-    %% MRI sync trigger
-    while 1
-        [acc_time, keyCode, ~] = KbPressWait; % log time trigger received
-            if find(keyCode) == left_arrow
-                disp('keyboard / MRI trigger received');
-                break;
-            end
-            if find(keyCode) == right_arrow
-                disp('keyboard / MRI trigger received');
-                break;
-            end
-            %note: need to record the key presses with associated choice 
-    end
-
      
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
