@@ -21,7 +21,7 @@ green = [31 177 38]; % color 2 green
 
 % set display text 
 
-displayText = 'Rate confidence about your previous decision. How confident are you about your choice?';
+displayText = 'How certain are you of your choice';
 decText1 = 'Extremely certain';
 decText2 = 'Somewhat certain';
 %decText3 = ' Neither certain nor uncertain';
