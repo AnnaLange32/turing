@@ -84,6 +84,7 @@ end
 
 Screen('Flip', myscreen); % show fixation
 
+
 WaitSecs(2)
 %start_scan=acc_time;
 % Wait for dummy scans [extended waiting time for microphone calibration]
@@ -132,7 +133,7 @@ for iTrial = 1:n_trials
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % CR 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    my_drawcr(myscreen, rect, right_arrow, down_arrow) % move with right_arrow, confirm choice with down_arrow
+    my_drawcr2(myscreen, rect, right_arrow, left_arrow, up_arrow, down_arrow) % move with right_arrow, confirm choice with down_arrow
      %my_drawcr_cogtoolbox(myscreen)  % uncomment for cogtoolbox Likert
      %version
      %[c] = exptSetup % uncomment for Stanford Likert version
