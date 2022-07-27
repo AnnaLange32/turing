@@ -84,7 +84,6 @@ end
 
 Screen('Flip', myscreen); % show fixation
 
-
 WaitSecs(2)
 %start_scan=acc_time;
 % Wait for dummy scans [extended waiting time for microphone calibration]
@@ -118,9 +117,27 @@ for iTrial = 1:n_trials
     % decision
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
-     my_drawdecision(myscreen, rect, [255 255 255])
+     my_drawdecision(myscreen)
      Screen('Flip', myscreen); % show decision
      
+    %% MRI sync trigger
+    while 1
+        [acc_time, keyCode, ~] = KbPressWait; % log time trigger received
+            if find(keyCode) == left_arrow
+                disp('keyboard / MRI trigger received');
+                break;
+            end
+            if find(keyCode) == right_arrow
+                disp('keyboard / MRI trigger received');
+                break;
+            end
+            %note: need to record the key presses with associated choice 
+            response = KbName(keyCode); % unified key name to record response
+    end
+   
+   my_drawfixation(myscreen,center_screen,15,15,[0 0.6 0.3]);
+   Screen('Flip', myscreen);  
+   WaitSecs(2)
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % delay 2
