@@ -48,6 +48,10 @@ ins_time = 3;
 delay_time = 3;
 cr_ins_time = 3;
 
+% colours
+
+green = [31 177 38]
+
 % Set logfile      
 %logfile_name=fullfile(curdir,'logs',sprintf('sub-%02d.mat',sub)); 
 %if exist(logfile_name,'file')~=2
@@ -135,7 +139,7 @@ for iTrial = 1:n_trials
             response = KbName(keyCode); % unified key name to record response
     end
    
-   my_drawfixation(myscreen,center_screen,15,15,[0 0.6 0.3]);
+   my_drawfixation(myscreen,center_screen,15,15,green);
    Screen('Flip', myscreen);  
    WaitSecs(2)
     
