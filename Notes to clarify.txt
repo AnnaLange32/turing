@@ -1,0 +1,6 @@
+Was wahrscheinlich noch implementiert werden sollte ist, dass man die Richtigkeit der Antwort recorded. Dafür fehlen aber noch Infos wie: 
+- wie wird die Condition gecoded?
+- sollen die Optionen auf dem decision screen randomized werden (was sie momentan sind) oder bleibt das immer gleich
+- wie genau sieht das button mapping aus
+
+Leider habe ich bisher noch keine gute Möglichkeit gefunden, wie man das Video verkleinert auf einem schwarzen screen abspielt. 

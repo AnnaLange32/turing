@@ -51,7 +51,7 @@ cr_ins_time = 3;
 % colours
 
 green = [31 177 38]
-white = [255 255 255 255]
+
 % Set logfile      
 %logfile_name=fullfile(curdir,'logs',sprintf('sub-%02d.mat',sub)); 
 %if exist(logfile_name,'file')~=2
@@ -65,12 +65,12 @@ white = [255 255 255 255]
 % Waiting for trigger 
  
 Screen('TextSize', myscreen, 30);
-DrawFormattedText(myscreen, 'The experiment will start soon!','center','center', white);        
+DrawFormattedText(myscreen, 'The experiment will start soon!','center','center',[255 255 255 255]);        
 
 Screen('Flip',myscreen);
 HideCursor;
 slack= 0.0078; % 1/60/2; % CHANGE: check this  0.0078 - maybe take out (should be +, I think)
-my_drawfixation(myscreen,center_screen,15,15,white);  % prepare fixation
+my_drawfixation(myscreen,center_screen,15,15,[255 255 255]);  % prepare fixation
 
 disp('OPERATOR, start SCANNING now! Waiting for scanner pulse to begin');
 
@@ -111,7 +111,7 @@ for iTrial = 1:n_trials
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % delay 1
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    my_drawfixation(myscreen,center_screen,15,15,white);  % prepare fixation
+    my_drawfixation(myscreen,center_screen,15,15,[255 255 255]);  % prepare fixation
 
     Screen('Flip', myscreen); % show fixation
 
@@ -121,7 +121,7 @@ for iTrial = 1:n_trials
     % decision
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
-     my_drawdecision(myscreen, rect, white)
+     my_drawdecision(myscreen)
      Screen('Flip', myscreen); % show decision
      
     %% MRI sync trigger
