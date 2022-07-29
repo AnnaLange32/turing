@@ -25,7 +25,7 @@ displayText = 'How certain are you of your choice?';
 decText1 = 'Extremely certain';
 decText2 = 'Somewhat certain';
 %decText3 = ' Neither certain nor uncertain';
-decText4 = 'Sonewhat uncertain';
+decText4 = 'Somewhat uncertain';
 decText5 = 'Extremely uncertain';
 
 % set fill color order
