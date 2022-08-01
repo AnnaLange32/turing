@@ -52,6 +52,7 @@ cr_ins_time = 3;
 
 green = [31 177 38]
 white = [255 255 255 255]
+black = [0 0 0 0]
 % Set logfile      
 %logfile_name=fullfile(curdir,'logs',sprintf('sub-%02d.mat',sub)); 
 %if exist(logfile_name,'file')~=2
@@ -121,7 +122,7 @@ for iTrial = 1:n_trials
     % decision
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
-     my_drawdecision(myscreen, rect, white)
+     my_drawdecision(myscreen,center_screen,15,15,white, rect, white);
      Screen('Flip', myscreen); % show decision
      
     %% MRI sync trigger
@@ -138,9 +139,15 @@ for iTrial = 1:n_trials
             %note: need to record the key presses with associated choice 
             response = KbName(keyCode); % unified key name to record response
     end
-   
-   my_drawfixation(myscreen,center_screen,15,15,green);
+    
+   my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
+   Screen('Flip', myscreen);
+   WaitSecs(0.5);
+   my_drawdecision(myscreen,center_screen,15,15,green, rect, white);
    Screen('Flip', myscreen);  
+   WaitSecs(0.5);
+   my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
+   Screen('Flip', myscreen);
    WaitSecs(2)
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
