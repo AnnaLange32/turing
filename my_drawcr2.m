@@ -1,4 +1,4 @@
-function my_drawcr2 (w, rect, right_arrow, left_arrow, up_arrow, down_arrow)
+function my_drawcr2 (w, rect, farLeft_code, Left_code, Right_code, farRight_code)
 
 % set sizes and positions for text and boxes
 
@@ -63,7 +63,7 @@ while 1
     
     % check if choice confirmed
     [acc_time, keyCode, ~] = KbPressWait; % log time trigger received
-    if find(keyCode) == down_arrow
+    if find(keyCode) == farLeft_code
         disp('keyboard / MRI trigger received');
         
         DrawFormattedText(w, displayText, 'center', rect(4)/3, [255 255 255]); %rec(4) chooses y2 element the division moves the text along this axis, 2 would be central, >2 is upper half
@@ -78,7 +78,7 @@ while 1
         WaitSecs(1)
         break
         
-    elseif find(keyCode) == right_arrow
+    elseif find(keyCode) == Left_code
         %find(keyCode) == left_arrow || find(keyCode) == right_arrow
         disp('keyboard / MRI trigger received');
           DrawFormattedText(w, displayText, 'center', rect(4)/3, [255 255 255]); %rec(4) chooses y2 element the division moves the text along this axis, 2 would be central, >2 is upper half
@@ -92,7 +92,7 @@ while 1
         Screen('Flip', w); % show next choice
         WaitSecs(1)
         break
-    elseif find(keyCode) == up_arrow
+    elseif find(keyCode) == Right_code
         %find(keyCode) == left_arrow || find(keyCode) == right_arrow
         disp('keyboard / MRI trigger received');
           DrawFormattedText(w, displayText, 'center', rect(4)/3, [255 255 255]); %rec(4) chooses y2 element the division moves the text along this axis, 2 would be central, >2 is upper half
@@ -106,7 +106,7 @@ while 1
         Screen('Flip', w); % show next choice
         WaitSecs(1)
         break
-   elseif find(keyCode) == left_arrow
+   elseif find(keyCode) == farRight_code
         %find(keyCode) == left_arrow || find(keyCode) == right_arrow
         disp('keyboard / MRI trigger received');
           DrawFormattedText(w, displayText, 'center', rect(4)/3, [255 255 255]); %rec(4) chooses y2 element the division moves the text along this axis, 2 would be central, >2 is upper half

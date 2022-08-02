@@ -25,20 +25,29 @@ black = [0 0 0];
 % total: 20s exp, 14s catch
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Check OS
-if ismac
-    trigger_code = 34;  % code for OS X
-    return_code = 40; % code for OS X ('Return')
-    o_code = 18; % code for 'o' in OS X  
-elseif ispc
-    trigger_code = 53;  % code for Windows
-    return_code = 13;  % code for Windows ('Return')
-    o_code = 79;  % code for 'o' in Windows 
-    left_arrow = 37;  % code for arrow left
-    up_arrow = 38;  % code for arrow up
-    right_arrow = 39;  % code for arrow right
-    down_arrow = 40;  % code for arrow down
-end
+% Set active keys
+KbName('UnifyKeyNames'); 
+trigger_code = KbName('5%'); % 5 key
+% return_code = KbName('Return'); % return key
+farLeft_code = KbName('a'); % return key
+Left_code = KbName('s'); % return key
+farRight_code = KbName('l'); % return key
+Right_code = KbName('k'); % return key
+
+% % Check OS
+% if ismac
+%     trigger_code = 34;  % code for OS X
+%     return_code = 40; % code for OS X ('Return')
+%     o_code = 18; % code for 'o' in OS X  
+% elseif ispc
+%     trigger_code = 53;  % code for Windows
+%     return_code = 13;  % code for Windows ('Return')
+%     o_code = 79;  % code for 'o' in Windows 
+%     left_arrow = 37;  % code for arrow left
+%     up_arrow = 38;  % code for arrow up
+%     right_arrow = 39;  % code for arrow right
+%     down_arrow = 40;  % code for arrow down
+% end
 
 rng('shuffle')
 
@@ -125,15 +134,15 @@ for iTrial = 1:n_trials
      my_drawdecision(myscreen,center_screen,15,15,white, rect, white);
      Screen('Flip', myscreen); % show decision
      
-    %% MRI sync trigger
+    %% Record decision
     while 1
-        [acc_time, keyCode, ~] = KbPressWait; % log time trigger received
-            if find(keyCode) == left_arrow
-                disp('keyboard / MRI trigger received');
+        [acc_time, keyCode, ~] = KbPressWait; % log time decision made
+            if find(keyCode) == Left_code
+                disp('keyboard / left side was pressed');
                 break;
             end
-            if find(keyCode) == right_arrow
-                disp('keyboard / MRI trigger received');
+            if find(keyCode) == Right_code
+                disp('keyboard / right side was pressed');
                 break;
             end
             %note: need to record the key presses with associated choice 
@@ -143,7 +152,7 @@ for iTrial = 1:n_trials
 %    my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
 %    Screen('Flip', myscreen);
 %    WaitSecs(0.5);
-   my_drawdecision(myscreen,center_screen,15,15,green, rect, white);
+   my_drawdecision(myscreen,center_screen,15,15,green, rect, white); % fix position options using variable in design file (ToBeProgrammed)
    Screen('Flip', myscreen);  
    WaitSecs(0.3);
    my_drawdecision(myscreen,center_screen,15,15,white, rect, white);
@@ -161,7 +170,7 @@ for iTrial = 1:n_trials
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % CR 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    my_drawcr2(myscreen, rect, right_arrow, left_arrow, up_arrow, down_arrow) % move with right_arrow, confirm choice with down_arrow
+    my_drawcr2(myscreen, rect, farLeft_code, Left_code, Right_code, farRight_code) % move with right_arrow, confirm choice with down_arrow
      %my_drawcr_cogtoolbox(myscreen)  % uncomment for cogtoolbox Likert
      %version
      %[c] = exptSetup % uncomment for Stanford Likert version
