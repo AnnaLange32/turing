@@ -140,13 +140,13 @@ for iTrial = 1:n_trials
             response = KbName(keyCode); % unified key name to record response
     end
     
-   my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
-   Screen('Flip', myscreen);
-   WaitSecs(0.5);
+%    my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
+%    Screen('Flip', myscreen);
+%    WaitSecs(0.5);
    my_drawdecision(myscreen,center_screen,15,15,green, rect, white);
    Screen('Flip', myscreen);  
-   WaitSecs(0.5);
-   my_drawdecision(myscreen,center_screen,15,15,black, rect, white);
+   WaitSecs(0.3);
+   my_drawdecision(myscreen,center_screen,15,15,white, rect, white);
    Screen('Flip', myscreen);
    WaitSecs(2)
     
